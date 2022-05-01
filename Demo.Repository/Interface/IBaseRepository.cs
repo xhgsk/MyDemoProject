@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Demo.Repository.Interface
 {
@@ -14,5 +13,6 @@ namespace Demo.Repository.Interface
         IQueryable<T> Find(Expression<Func<T, bool>> expression);
         void Add(T entity);
         void Update(T entity);
+        Task Commit();
     }
 }

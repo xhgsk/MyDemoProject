@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Demo.Domain.Models;
 using Demo.Service.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Demo.Service.Util
 {
@@ -13,6 +10,9 @@ namespace Demo.Service.Util
         {
             CreateMap<Client, ClientViewModel>();
             CreateMap<PaginatedList<Client>, ClientsPageViewModel>();
+            CreateMap<Goal, GoalViewModel>();
+            CreateMap<GoalViewModel, Goal>();
+            CreateMap<PaginatedList<Goal>, GoalsPageViewModel>();
         }
     }
 }

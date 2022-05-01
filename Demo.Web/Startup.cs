@@ -7,17 +7,11 @@ using Demo.Service.Interface;
 using Demo.Service.Util;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Demo.Web
 {
@@ -44,6 +38,8 @@ namespace Demo.Web
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IGoalRepository, GoalRepository>();
+            services.AddScoped<IGoalService, GoalService>();
 
             // Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>

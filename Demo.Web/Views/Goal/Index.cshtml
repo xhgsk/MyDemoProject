@@ -1,0 +1,78 @@
+﻿@model Demo.Service.ViewModels.GoalsPageViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Goals</h2>
+
+<p>
+    <a asp-action="Create" asp-route-clientId="@Model.ClientId">Create New</a>
+</p>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Goals.Count() > 0)
+                {
+                    @foreach (var item in Model.Goals)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                <a asp-controller="Goal" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-controller="Goal" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            No Data Found!
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-clientId="@Model.ClientId"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-clientId="@Model.ClientId"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
+
+<br />
+
+<div>
+    <a asp-action="Index" asp-controller="Client">Back to Client List</a>
+</div>

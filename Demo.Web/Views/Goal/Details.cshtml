@@ -1,0 +1,30 @@
+﻿@model Demo.Service.ViewModels.GoalViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Goal Details</h2>
+
+<div>
+    <hr />
+    <dl class="col-md-10">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+        <dd>
+            <p>@Html.DisplayFor(model => model.Details)</p>
+        </dd>
+    </dl>
+</div>
+<br />
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index" asp-route-clientId="@Model.ClientId">Back to List</a>
+</div>
