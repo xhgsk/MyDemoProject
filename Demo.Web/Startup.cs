@@ -1,4 +1,4 @@
-using Demo.Web.Data;
+using Demo.Domain.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
