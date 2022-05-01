@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Demo.Repository.Implementation
 {
@@ -22,6 +23,6 @@ namespace Demo.Repository.Implementation
         public IQueryable<T> GetAll() => _context.Set<T>().AsNoTracking();
         public T GetById(string id) => _context.Set<T>().Find(Guid.Parse(id));
         public void Update(T entity) => _context.Set<T>().Update(entity);
-
+        public async Task Commit() => await _context.SaveChangesAsync();
     }
 }

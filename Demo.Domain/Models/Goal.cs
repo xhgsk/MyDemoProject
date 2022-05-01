@@ -13,7 +13,7 @@ namespace Demo.Domain.Models
         [Required]
         [StringLength(50)]
         public string Title { get; set; }
-        public string Detials { get; set; }
+        public string Details { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime DateCreated { get; set; }
         [ForeignKey("ClientId")]
